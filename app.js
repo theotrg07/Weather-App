@@ -1,19 +1,19 @@
 
 const city_country = document.querySelector('.city-country');
-const temp = document.querySelector('.temperature p');
+const temp = document.querySelector('.temperature ');
 const description = document.querySelector('.description p');
 const feelsLike = document.querySelector('.feels-like');
 const humidity = document.querySelector('.humidity');
 const wind = document.querySelector('.wind');
 const notification = document.querySelector('.notification');
-const weatherIcon = document.querySelector('.weather-icon');
+const weatherIcon = document.querySelector('.icon');
 const temperature = document.querySelector('temperature p');
 
 const weather = {};
 
-// weather.temperature = {
-//     unit: 'celsius'
-// }
+weather.temperature = {
+    unit: 'celsius'
+};
 
 KELVIN = 273;
  
@@ -62,21 +62,19 @@ function getWeather(latitude, longitude){
             weather.humidity = data.main.humidity;
             weather.wind = data.wind.speed;
             
-            
         })
 
         .then(function(){
-            displayWeather()
+            displayWeather(weather)
         })
 }
 
-function displayWeather(){
+function displayWeather() {
     city_country.textContent = `${weather.city}, ${weather.country}`;
-    // weatherIcon.innerHTML = `<img src="icons/${iconId}.png">`;
-    // temperature.innerHTML = `${weather.temperature}°<span>C</span>`;
+    weatherIcon.innerHTML = `<img src="icons/${weather.iconId}.png">`;
+    temp.innerHTML = `${weather.temperature}°<span>C</span>`;
     description.textContent = `${weather.description}`;
     feelsLike.innerHTML = `<p>Feels like: ${weather.feelsLike}<span>°</span>C</p>`;
     wind.innerHTML = `<p>Wind: ${weather.wind}<span>m/s</span></p>`;
     humidity.innerHTML = `<p>Humidity: ${weather.humidity}<span>%</span><p>`
-
 }
