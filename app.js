@@ -8,12 +8,13 @@ const wind = document.querySelector('.wind');
 const notification = document.querySelector('.notification');
 const weatherIcon = document.querySelector('.icon');
 const temperature = document.querySelector('temperature p');
+const container = document.querySelector('.container');
 
 const weather = {};
 
-weather.temperature = {
-    unit: 'celsius'
-};
+// weather.temperature = {
+//     unit: 'celsius'
+// };
 
 KELVIN = 273;
  
@@ -40,12 +41,13 @@ function setPosition(position){
 function showError(error){
     notification.style.display = 'block';
     notification.innerHTML = `<p>${error.message}</p>`
+    container.style.height = '130vh';
+    
 }
 
 
 function getWeather(latitude, longitude){
     let api =`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`; 
-    console.log(api);
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -60,12 +62,11 @@ function getWeather(latitude, longitude){
             weather.description = data.weather[0].description;
             weather.feelsLike = Math.floor(data.main.feels_like - KELVIN);
             weather.humidity = data.main.humidity;
-            weather.wind = data.wind.speed;
-            
+            weather.wind = data.wind.speed;           
         })
 
         .then(function(){
-            displayWeather(weather)
+            displayWeather()
         })
 }
 

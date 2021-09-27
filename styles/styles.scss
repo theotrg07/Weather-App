@@ -14,33 +14,89 @@
     align-items: center;
     height: 100vh;  
     text-align: center;
+    background-color: #0093E9;
+background-image: linear-gradient(100deg, #1DB9C3 20%, #80D0C7 80%);
+
+}
+.title{
+    margin:.4em 0 1em 0;    
+    background-color: lightgreen;
+    padding:.2em 1em;
+    border-radius:8px;
+
 }
 
 .city-country{
     font-size:2rem;
+    font-weight:bold;
+
 }
 
 .notification{
     color:red;
-    font-size:1.9rem;
+    font-size:1.6rem;
     padding:5px;
     font-weight:bold;
+    position:relative;
 }
+.more-details{
+    font-size:1.9rem;
+    font-weight:bold;
+    margin-top:.6em;
+    margin-bottom:0;
+    color:#2E294E;
+}
+
+
+
 
 .details{
-    font-size:1.2rem;
-    border:2px solid black;
-    border-style: groove;
-    padding:1em;
+    display:flex;
+    flex-direction: row;
+    font-size:1.6rem;
+    padding:.6em;
     text-align:left;
+    font-weight:bold;
+    text-align: center;
+    color:#17183B;
+    margin-top:0;
 }
 
+
+.feels-like, .humidity, .wind{
+    background-color:white;
+    padding:0.4em;
+    margin:.2em;
+    opacity:0.7;
+    border-radius:10px;
+    margin-top:0;
+        box-shadow: rgba(255, 255, 255, 0.671) 3px 3px;
+
+}
+
+
 .description, .temperature{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     
+}
+
+.temperature{
+    color:#744FC6;
+    font-weight: bold;
 }
 
 .description{
     text-transform: capitalize;
+    font-weight:bold;
+    text-decoration:overline;
 }
+
+.icon{
+    background-color: white;
+    padding:1em;
+    border-radius:50%;
+    margin:.3em;
+}
+
+
 
